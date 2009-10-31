@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-HOST = "gemstream.local:3000"
+HOST = "localhost:3000"
                            
 # sudo gem sources -a http://gems.github.com
 # sudo gem install visionmedia-commander
