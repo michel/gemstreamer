@@ -26,8 +26,10 @@ command :publish do |c|
       begin
         dep = Gemstreamer::Dependencies.new(".")
         dependencies = dep.dependencies
-      rescue Exception 
-        puts "Can't find config/environment. \nExecute this command in your rails app"
+      #shit goes to hell when the e
+      rescue Exception => e 
+        puts "Can't load or find config/environment. \nExecute this command in your rails app and make sure your environment can be loaded."
+        raise e
       end
       
       
@@ -37,6 +39,7 @@ command :publish do |c|
           rescue Exception => e
             puts "This  application is a proof of concept, and it looks like its not working for you. Here's what went wrong:"
             puts e.inspect
+            raise e            
           end      
     end      
   end
