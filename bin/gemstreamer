@@ -10,7 +10,7 @@ require File.dirname(__FILE__) + '/../lib/gemstreamer.rb'
  
 # :name is optional, otherwise uses the basename of this executable
 program :name, 'gemstreamer'
-program :version, Gemstreamer::VERSION
+program :version, "0.0.1"
 program :description, 'Publish dependencies of your rails app to gemstreamer'
 program :help, 'Copyright', '2009 kabisa.nl'
 global_option '--verbose'
