@@ -21,6 +21,6 @@ class Gemstreamer::Publisher
   def publish_dependencies(gems)    
     dep_hash = build_hash(gems)        
     #todo apikey / authorisation
-    RestClient.post "#{@host}/users/#{@user}/applications/#{@app}/deps", {"dependencies" => dep_hash }
+    RestClient.post "#{@host}/users/#{@user}/applications/#{@app}/deps", {"dependencies" => dep_hash } , :content_type => "application/json"
   end
 end
