@@ -1,0 +1,14 @@
+defaults: &defaults
+  sitename: "testapp"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+cucumber:
+  <<: *defaults
+
+production:
+  <<: *defaults

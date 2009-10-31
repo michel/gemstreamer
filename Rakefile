@@ -5,12 +5,16 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "gemstreamer"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "michel@re-invention.nl"
+    gem.summary = %Q{push your rails app gem dependencies to gemstream}
+    gem.description = %Q{push your rails app gem dependencies to gemstream}
+    gem.email = "michel@kabisa.nl"
     gem.homepage = "http://github.com/michel/gemstreamer"
-    gem.authors = ["Michel de Graaf"]
+    gem.authors = ["Michel de Graaf","Ludo van den Boom"]
     gem.add_development_dependency "rspec"
+    gem.add_dependency 'commander' 
+    gem.add_dependency 'rest-client'
+    
+    
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
