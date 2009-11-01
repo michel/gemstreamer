@@ -19,28 +19,28 @@ command :publish do |c|
   c.syntax = 'publish user app'
   c.description = 'Publish dependencies of your rails app to gemstreamer'
 
-  c.when_called do |args, options|   
-    if options.artist.nil? && options.title.nil? && args.empty?
+  c.when_called do |args, options| 
+    if args.empty? || args.size < 2
        say "Please provide your gemstreamer username and the application name e.g.\n  gemstreamer publish michel my_cool_app"
     else                            
       begin
         dep = Gemstreamer::Dependencies.new(".")
         dependencies = dep.dependencies
-      #shit goes to hell when the e
       rescue Exception => e 
         puts "Can't load or find config/environment. \nExecute this command in your rails app and make sure your environment can be loaded."
         raise e
       end
+     
       
-      
-       begin
-            publisher =  Gemstreamer::Publisher.new(HOST,args[0],args[1])
-            publisher.publish_dependencies(dependencies)
-          rescue Exception => e
-            puts "This  application is a proof of concept, and it looks like its not working for you. Here's what went wrong:"
-            puts e.inspect
-            raise e            
-          end      
+      begin
+        publisher =  Gemstreamer::Publisher.new(HOST,args[0],args[1])
+        publisher.publish_dependencies(dependencies)
+      rescue Exception => e
+        puts "This  application is a proof of concept, and it looks like its not working for you. Here's what went wrong:"
+        puts e.inspect
+        raise e            
+
+      end      
     end      
   end
 end
